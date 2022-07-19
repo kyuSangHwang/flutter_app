@@ -1,0 +1,71 @@
+
+직관적인 이해를 위해 한가지 경우로만 한정해서 MyApp Widget 을 설명
+    최상위 Widget이 되어야할 MyApp Widget은 최초로 App의 Layout을 Build하는 역할
+    즉, 뼈대를 만드는 역할 만을 하기 때문에 어떤 변화나 움직임이 없는 정적인 Widget이 될 것
+    그래서 MyApp Widget은 StatelessWidget으로 지정을 해야할 것
+
+
+모든 Custom Widget은 또다른 Widget을 return하는 Build라는 함수를 가지고 있다.
+그래서 코드를 보면 MyApp Widget은 container라는 Widget을 return하고 있다.
+
+최소한의 기본틀을 만들었으니 본격적으로 앱을 디자인 해야한다.
+현재 필요한 것은 앱을 만들기 위해서 Import한 Flutter Material Library를 사용할 수 있는 기능을 가 Widget이다.
+그 Widget이 Material App이라는 Widget이다.
+
+
+이로써 우리는 Flutter Framework가 제공하는 모든 기본 위젯과 디자인 테마를 본격적으로 사용할 수 있습니다
+Widget Tree에서 설명을 했듯 Material Widget이 MyApp Widget에 이어서 Widget Tree 2번째 자리에 위치하게 되고
+실질적으로 모든 Widget을 감싸고 있다고 보시면 됩니다
+
+이제 MaterialApp Widget에서 몇 가지 세팅을 해보겠습니다
+MaterialApp Widget은 runApp함수 처럼 반드시 argument 를 가져야 합니다
+또한 Flutter의 모든 Widget들이 이렇게 argument를 가진다고 생각하시면 됩니다
+
+그러면 우선 App을 총칭하는 기본 타이틀을 한번 만들어 보겠습니다
+MaterialApp Widget은 title이 라는 문자열을 argument 로 가지고 있습니다
+
+한 줄 밑으로 내려 오셔서 TI 라고 치시면 타이틀이 라고 뜹니다 선택을 해줍니다
+이제 컬러는 뒤에 문자를 밸류 값으로 지정해 주면 되는데
+코딩을 할 때 문자를 입력하려면 반드시 쌍 따움표 나 따옴표를 입력한 후 그 안의 내용들을 입력해 주어야 합니다
+저는 그냥 따옴표를 사용을 하고 First app이라고 입력하게 씁니다
+
+그리고 한 줄도 밑으로 내려 오셔서 이번에는 th 라고 입력을 하시면 theme이라는 알기 먼트를 찾을 수 있습니다 선택해 줍니다
+그리고 1번 더 th 라고 입력을 하시면 ThemeData라는 Widget을 찾을 수 있습니다 선택해줍니다
+App의 기본적인 디자인 테마를 지정하는 곳이라고 이해하시면 됩니다
+
+ThemeData 역시도 argument를 가지기 때문에 한 줄 밑으로 내려와서
+이번에는 pri 라고 입력을 하시면 아래쪽에 primarySwatch라는 argument를 찾을 수 있습니다 선택해줍니다
+아시겠지만 Swatch 라는 것은 견본을 의미합니다
+여기에서는 App에서 기본적으로 사용할 색상 견본을 의미한다고 이해하시면 됩니다\
+그래서 primarySwatch는 특정한 한 색상을 지정해서 사용한다는 의미보다는 특정 색의 음영들을 기본 색상으로 지정해서 사용하겠다는 의미라고 이해하시기 바랍니다
+
+이번에는 primarySwatch 뒤에 colors.blue 라고 입력을 합니다
+Material Design에서 제공하는 다양한 색상들 중에서 물로 계열의 의미유형을 사용하겠다는 의미 라고 이해하시면 됩니다
+마우스를 대보시면 블루 색상 들에 음 용들이 보이시죠
+
+지금까지 ThemeData Widget 내에서 필요한 settings 를 했습니다
+
+이제 ThemeData Widget 밖으로 나오겠습니다
+그리고 여기 옅은 회색으로 ThemeData라고 쓰여 있죠 이것을 Closing label 이라고 합니다
+Flutter는 여러 문제들을 나열하면서 코딩을 하기 때문에 Widget들의 구분이 아주 중요합니다
+그래서 알아보기 쉽게 자동으로 이렇게 Widget의 끝을 알려주는 기능이 있습니다
+
+이번에는 ThemeData Widget 밖에서 h 라고 입력을 하시고 보여지는 home 이란 위젯을 선택해줍니다
+home은 App이 정상적으로 실행 되었을 때 가장 먼저 화면에 보여주는 경로입니다
+그래서 home 뒤에 이번에는 MyHomePage라는 Custom Widget 이름을 적어줍니다
+이제 우리가 App을 실행시킨다면 MyHomePage라는 Widget내에 내용들을 제일 먼저 보게 될 것입니다
+
+자 지금까지 학습한 내용들을 간단하게 복습해 보겠습니다
+1. flutter material library import 하기
+3. compiler에게 시작점을 알려주기 위해서 void main 함수 불러오기
+3. Flutter 최상위 함수인 runApp함수 불러오기
+4. runApp함수 내에 MyApp이라는 Custom Widget 이름을 argument 으로 넣어주기 (끝에 반드시 세미콜론(;) 을 붙여 줘야함)
+5. StatelessWidget으로 MyApp custom widget 생성하기
+6. return 즉, 반한 Widget을 container Widget에서 MaterialApp Widget으로 바꾸어 주기
+7. MaterialApp Widget 내에서 title지정해주기
+8. MaterialApp Widget 내에서 themeData Widget 불러오기
+9. primarySwatch argument 불러오기
+10. 블루 색상 음영으로 지정해 주기
+11. home에서 MyHomePage로 Custom Widget 이름을 지정해 주기
+
+다음 시간에는 본격적으로 Body부분 본격적으로 코딩
