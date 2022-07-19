@@ -1,0 +1,45 @@
+
+🐳 이번에 학습할 내용은 세 가지
+    1. Flutter 프로젝트 폴더의 구성
+    2. 코드의 기본 내용 이해하기 / 앱 페이지 기본 구성 공식화 해보기
+    3. 첫 번째 Flutter 앱 실행
+
+🐳 프로젝트의 구조 (파일들의 역할)
+    • pubspec.yaml
+        • 앱을 만들 때 자주 사용하는 파일
+        • 프로젝트의 meta data 를 정의하고 관리하는 곳
+            • 프로젝트 사용환경, Dart 버전, 각종 Dependency, Third Party Library(프로그래밍 개발과 개발자 사이에 서드파티는 플러그인, 라이브러리, 프레임워크 등,서비스와 사용자 사이에 서드파티는 응용 프로그램, 애플리케이션, 웹 서비스) 등을 이곳에서 정의
+        • 앱을 만들 때 필요한 여러가지 중요한 정보들을 이곳에 등록하는 구나 정도로 이해
+    • android & ios folder
+        • 각 Platform 에 맞게 앱을 배포하기 위한 정보들을 가지고 있다고 이해하면 됨.
+        • 추후 구체적으로 알아보겠음
+    • test folder
+        • 개발하기 원하는 각 종 Dart 관련 코드를 테스트 해볼 수 있음.
+    • lib folder
+        • 안에는 main.dart 이 들어 있다.
+        • 앞으로 앱을 만들 때 거의 99%를 lib folder 에서 작업을 한다.
+
+
+🐳 Flutter App 을 만들 때 제일 먼저 해야하는 일
+    • Flutter Material 라는  Library 를 Import 하는 것 (무조건)
+        • 그 이유는 Flutter Material 를 반드시 가져와야만 Flutter Framework 즉, SDK 에 포함된 모든 Widget 과 Material Design Theme 요소를 사용할 수 있기 때이다.
+        • Material Design 이란?
+            • Mobile, Desktop 그 외 Device 를 아우르는 일관된 디자인을 위해서 Google 이 제공하는 가이드라인 이라고 이해하시면 된다.
+        • void 란? 텅빈 공간이라는 의미, 함수가 끝났을 떄 아무런 값도 반환하지 않는다는 것을 정의하기 위해 void 를 붙여준다.
+        • runApp(app) → Flutter 에서 최상위에 존재하는 함수(최상위함수), 반드시 Widget 을 argument 로 갖어야한다.
+            • runApp 이라는 함수는 호출될 때 마다 함수의 전달되는 어떤 값을 갖어햐하는데 구체적으로 Widget 이어야한다는 것.
+              이를 개발언어로 말하면, runApp 은 Widget 을 argument 로 갖는다.
+              즉, runApp 함수의 괄호 안에는 반드시 Widget 이라는 요소가 들어오는구나 라고 이해하면 편하다.
+      • MyApp Widget
+        • Custom Widget
+        • Flutter 의 최상위 함수인 runApp 이 최초로 불러온 Widget 인 만큼 MyApp Widget 은 Widget Tree 에서 최상위에 위치하는 Widget 이고
+          Screen layout 을 최초로 Build 하는 역할을 한다.
+
+🐳 클래스 명과 함수명
+    • 철자법에 따른 함수와 클래스의 구분
+        • main(), runApp()
+            어떤 기능을 담당하는 함수
+            첫글자를 소문자, 함수는 소문자로 시작, 두단어 이상이면 Camel Case
+        • MyApp()
+            함수가 아닌 Widget
+            클래스는 대문자로 시작
