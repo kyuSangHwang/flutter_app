@@ -1,0 +1,131 @@
+### 간단한 게임 캐릭터 정보를 보여주는 웹페이지를 직접 만들기
+
+- 우리가 필요한 widget들을 사용하는 방법을 간단하게 연습
+- Flutter에서 매우 자주 쓰이는 widgets
+    - centerTitle
+    - appbar backgrounColor
+    - appbar elavation
+    - Padding widget
+    - MainAxisAlignment
+    - 위젯 삭제하기
+    - Center 위젯으로 Column위젯 감싸기
+    - Column위젯과 Center 위젯의 주요특징
+- 지난 시간까지 기본 웹 페이지를 구성하는 coding을 연습을 했으니 우선 appBar까지 구현
+- emulator 실행
+
+---
+
+## centerTitle
+
+- title을 정중앙으로 옮길 때에는 centerTitle 이라는 기능을 사용
+  이 값은 boolean 값  즉, True or False로 지정
+    - cen 입력 → centerTitle
+    - 값을 True라고 입력
+    - command s 를 누르면 타이틀이 가운데로 옮겨짐
+
+---
+
+## appbar backgrounColor
+
+- appBar 내에서 appBar의 색상을 따로 지정해 줄 수도 있음
+- b 입력 → background color 속성
+    - primarySwatch에서 색상을 지정해 주었던 방식과 같음
+    - command s
+
+---
+
+## appbar elavation
+
+- drop shadow처럼 appBar을 좀 떠있을 떄, elevation 이라는 기능을 사용
+- e 입력 → elevation
+- elevation = 높이라는 뜻의 단어
+    - 수치로 값을 지정
+    - 소수점 까지 근소하게 수치로 조절할 수 있기 떄문에
+        - 0.0 입력
+        - command s 입력
+    - flat하게 appBar가 떠있는 효과가 없어짐
+
+---
+
+## Padding widget
+
+- Padding과 Column widget의 조합을 사용
+- Padding은 어떤 특정 지점으로부터 사용하고자 widget이 떨어져야 할 거리를 지정할 때 사용
+    - 정확한 padding 속성을 지정하기 위해서 한번 더 padding 속성을 불러온다
+    - 뒤에 E 입력 → EdgeInsets.fromLTRB 라는 속성
+        - Insets 라는 단어는 무언가를 삽입한다 끼워넣다라는 뜻
+        - LTRB는 left, top, right, bottom 발음의 첫 글자
+- column widget → widget들을 세로로 배치하는 기능을 가진 widget
+- padding widget의 child widget으로 불러 왔기 때문에 app 화면에서는 왼쪽으로 30px 위로부터 40px 떨어진 위치에 widget들을 세로로 배치할 것입니다.
+
+그럼 column widget 내의 3개의 text widget을 만들어 보겠습니다.
+
+자 이제 command s를 눌러서 확인해보면 padding 값이 잘 적용되서 text widget들이 보여질 것
+
+---
+
+## MainAxisAlignment
+
+- 정렬
+- m 입력 → mainAxisAligment 라는 속성
+    - Axis는 가로축 세로축 할 때 그 축이 라는 의미
+- 이 속성은 app screen 내에서 widget들을 세로로 정렬할 때 사용됨
+- column VS mainAxisAligment
+    - column은 widget들을  세로로만 정렬 하지만
+    - mainAxisAligment는 widget을 app screen 내에서 새로운 축으로 상단,중간,하단 등 정렬할 때 사용
+- 위치를 지정해 주기 위해서 한번 더 M 입력 → mainAxisAligment 관련한 여러가지 속성들이 있음
+    - center 세로축 중간
+    - end 세로축 끝
+    - start 세로축 시작점
+- command s → text widget들이 화면 중앙으로 이동
+- 화면 중앙 쪽으로 이동을 했지만 왼쪽 또는 다른 쪽으로 치우쳐져 있다면
+    - 이것은 padding widget에 내에서 mainAxisAligment 기능을 사용했기 때문
+    - mainAxisAligment 효과를 좀 더 확실하게 사용하려면 padding을 지워 주면 됨
+
+---
+
+## 위젯 삭제하기
+
+- 앞으로 작업을 하실 때 widget을 삭제할 경우가 많이 생기실 텐데 가장 확실한 방법은 여기 closing label에 있는 괄호부터 먼저 지우는 것
+- 예를 들어, padding 을 지운다면 padding closing label을 지우고 padding 부터 시작을 해서 지우고자 하는 곳 전 까지를 삭제하게 되면 아무런 문제 없이 padding widget이 잘 삭제
+
+---
+
+## Center 위젯으로 Column위젯 감싸기
+
+![스크린샷 2022-07-19 오후 9.47.33.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cf390474-a83c-4239-b7c4-d377d35159c9/스크린샷_2022-07-19_오후_9.47.33.png)
+
+- 이제 cloumn widget을 center widget으로 감싸 보겠습니다
+    - 방법은 아주 쉽습니다
+    - column widget을 클릭을 해보면 옆에 노란 동그라미가 생기는데 이것을 클릭하면 center widget 이라는 메뉴가 보이는데 이를 클릭
+    - 그러면 센터를 위주의 시 칼럼 이짓을 감싸게 됩니다
+    - 이제 저장을 해 보면 텍스트가 정중앙에 widget이 있습니다
+
+---
+
+## Column위젯과 Center 위젯의 주요특징
+
+- 이번에는 column widget과 center widget에 대해서 깊이 알아보자
+- 일반적으로 center widget은 단순히 정중앙에 배치하는구나 라고 여기고 넘어갈 때가 많지만 center widget이 있다고 해서 항상 widget들이 화면의 정중앙에 배치되는 것은 아니다.
+
+- 그 예가 center widget과 column widget이 만날 때이다.
+
+![스크린샷 2022-07-19 오후 9.56.07.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0a966d4b-72c5-4882-9d14-5529ad929bff/스크린샷_2022-07-19_오후_9.56.07.png)
+
+- 이 이미지는 column widget 내에서 child widget으로 text widget을 만들고 실행시킨 모습이다.
+- column widget은 특별한 제약을 가지고 있다.
+    - 즉, 자식 widget에게 세로축 관련해서 높이의 제약이 전혀 없으니까 네 마음대로 확장해도 돼
+
+![스크린샷 2022-07-19 오후 9.57.24.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/79ce8795-374f-4f33-af27-5085337f66a6/스크린샷_2022-07-19_오후_9.57.24.png)
+
+- 그래서 이미지에 보듯이 가로축 상으로는 넓이에 대한 확실한 제약을 두고 표현되지만 세로축 상으로는 아무런 제약이 없다.
+- 그래서 이렇게 column widget과 center widget이 만나면 center widget은 column widget의 자식들에 대한 세로축 위치에 대해서는 관여하지 않고 그 대신 현재 column widget의 자식 widget 세로축 높이에 자동으로 fix가 되어 버린다.
+- 그럼 새로 축을 정렬해 주는 MainAxisAlignment를 지우고 다시 저장해 보겠습니다
+    - 역시나 가로축으로만 정중앙에 위치하게된다.
+- 그래서 column widget과 center widget이 결합되었을 때, 세로축 상으로 정중앙에 column widget의 자식들을 위치시키려면 MainAxisAlignment가 필요하다.
+
+### 정리하자면
+
+column widget을 정중앙에 위치 시키려면 center widget 사용하고
+
+세로축으로 정중앙에 위치 시키려면 column widget 내에서 MainAxisAlignment 속성을 사용
