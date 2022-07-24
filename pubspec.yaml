@@ -30,7 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-ㄱ  # add this line to your dependencies
+  # add this line to your dependencies
   fluttertoast: ^8.0.9
 
   # The following adds the Cupertino Icons font to your application.
@@ -60,6 +60,15 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
+  assets:
+   - assets/wallace_and_gromit.png
+   - assets/mc_graw_01.jpg
+   - assets/mc_graw_01_nb.png
+   - assets/mc_graw_02.jpg
+   - assets/mc_graw_02_nb.png
+   - assets/wallace_and_gromit_01.png
+   - assets/wallace_and_gromit_01_nb.png
+   - assets/wallace_and_gromit_02.jpg
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
