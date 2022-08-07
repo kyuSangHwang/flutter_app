@@ -1,0 +1,49 @@
+
+## BuildContext 개념
+>
+“A handle to the location of a widget in the widget tree”
+”widget tree 에서 현재 widget 의 위치를 알 수 있는 정보”
+>
+- 어디에 쓰일까? → 우리가 coding 할 때, 매번 이 BuildContext 를 보았다.
+- Flutter 에서 Widget 은 Build method 즉, 함수를 가지고 있고 이를 통해서 계층구조를 만들어 나아간다.
+
+### Build method 는 Scaffold Widget 을 return 하는데 
+### 이때 Widget tree 상에서 어디에 위치하는가에 대한 정보를 가지고 있는 context 라는 것을 넣어서 return 해준다는 의미
+
+---
+
+>
+“Each widget has its own BuildContext, which becomes the parent of the widget returned by the StatelessWidget.build or State.build function.”
+”모든 Widget 은 자신만의 BuildContext 를 가지고 있다. 이 BuildContext 는 stateless widget 이나 state build method 에 의해서 return 된 widget 의 부모가 된다. ”
+>
+
+```dart
+class MyPage extends StatelessWidget {
+  const MyPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+
+    );
+  }
+}
+```
+
+- StatelessWidget 으로 MyPage 라는 custom widget 을 생성했고 이 MyPage 라는 custom widget 도 자신만의 BuildContext Type 의 context 를 가지고 있다.
+- build method 를 통해서 Scaffold widget 이 return 이 되었고 이때 Scaffold widget 은 부모인 build widget 의 context 를 그대로 물려 받는다는 의미.
+- 그렇다면 어떤 필요에 의해서 Widget Tree 상에서 Scaffold widget 의 위치가 필요해서 Scaffold widget 의 위치를 참조하면 아래와 같은 에러를 보게 된다.
+
+  Scaffold.of() called with a context that does not contain a scaffold.
+
+- 이게 까다로운 이유이다. 
+  - Scaffold widget 이 존재한다고 해서 현재 Scaffold widget 이 Widget tree 상에서 어디에 위치하고 있는지를 알기 위해서 
+    Scaffold widget 의 context 를 참조하는 것이 마땅하지만 Scaffold widget 의 context 는 Widget tree 내에서 
+    Scaffold 가 어디에 위치하는지 전혀 가지고 있지 않다.
+- 어떻게 해결할까?
+    - MyPage widget
+      Build method 에 의해서 return 된 Scaffold widget 은 그 부모의 BuildContext type 의 context 를 물려 받는다고 했으니 
+      Scaffold widget 밑에서 Build method 로 무언가 return 하면 그 Widget 은 부모인 Scaffold widget 의 진짜 context 를 물려 받을 수 있다.
+
+### 참고 문헌
+[Flutter :: BuildContext 무엇인가?](https://velog.io/@haedaal_94/Flutter-BuildContext-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80)
